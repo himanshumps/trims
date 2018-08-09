@@ -37,7 +37,7 @@ public class MainConfiguration {
                 threadPoolProfile.setKeepAliveTime(25L);
                 threadPoolProfile.setRejectedPolicy(ThreadPoolRejectedPolicy.Abort);
                 context.getExecutorServiceManager().registerThreadPoolProfile(threadPoolProfile);
-                ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
+                ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(user, password, url);
                 context.addComponent(ACTIVEMQ, jmsComponentAutoAcknowledge(connectionFactory));
             }
         };
